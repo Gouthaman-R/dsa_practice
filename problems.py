@@ -535,3 +535,129 @@ Grade A
 
 """
 # =============================================================================================================
+# n=4
+# for i in range(1,n+1):
+#     for j in range(1,n+2-i):
+#         print(j,end=" ")
+#     print("")
+
+# output
+
+"""
+1 2 3 4 
+1 2 3 
+1 2 
+1
+
+"""
+
+# =============================================================================================================
+# n=4
+# for i in range(1,n+1):
+#     for j in range(1,n+1-i):
+#         print(" ",end=" ")
+#     for j in range(1,i+1):
+#         print(j,end=" ")
+#     print("")
+# output
+
+"""
+      1
+    1 2
+  1 2 3
+1 2 3 4
+
+"""
+
+# =============================================================================================================
+"""to find the last digit of the number and reverse the given number"""
+
+# n=1234567
+# while(n>0):
+#   ld=n%10
+#   print(ld)
+#   n=n//10
+  
+
+# output
+"""
+7
+6
+5
+4
+3
+2
+1
+
+"""
+
+# =============================================================================================================
+""" to find the first digit of the given number"""
+# n=87654456
+# while(n>0):
+#     last_digit=n%10
+#     n=n//10
+#     if n==0:
+#         print("the first digit is:",last_digit)
+# output
+"""the first digit is: 8 """
+
+# =============================================================================================================
+""" To find the count of the given number:"""
+# n=56784532
+# count=0
+# while(n>0):
+#     count+=1
+#     n=n//10
+# print("the count of this given number is:",count)
+
+# output
+"""the count of this given number is: 8 """
+
+# =============================================================================================================
+""" To find the number of odd digits in the given number"""
+# n=2318329948311
+# count=0
+# while(n>0):
+#     last_digit=n%10
+#     if last_digit%2!=0:
+#         count=count+1
+#     n=n//10
+# print("the count of the odd number is:",count)
+
+# output
+"""the count of the odd number is: 8 """
+# =============================================================================================================
+
+"""Given two numbers a and b, find kth digit from right of ab."""
+# a=int(input("enter a number"))
+# b=int(input("enter a number"))
+# c=int(input("enter a number"))
+
+# power=pow(a,b)
+
+# count=0
+# while(power>0):
+#     count+=1
+#     ld=power%10
+#     if count==c:
+#         print(ld)
+#     power//=10
+
+
+# example2 in method(function)
+
+# def kthDigit( a, b, k):
+#         power=pow(a,b)
+#         count=0
+#         while power>0:
+#             count+=1
+#             ld=power%10
+#             if count==k:
+#                 return ld
+#             power//=10
+
+# print(kthDigit(3,3,1))
+    
+
+# =============================================================================================================
