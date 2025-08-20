@@ -1028,3 +1028,413 @@ Explanation: abs|(1**2 + 2**2) - (1 + 2)**2| = 4."""
 
 # =============================================================================================================
 
+"""You are given an integer n. Your task is to reverse the digits, ensuring that the reversed number has no leading zeroes.
+
+Examples:
+
+Input: n = 122
+Output: 221
+Explanation: By reversing the digits of number, number will change into 221."""
+
+
+# n=21465401200
+# while (n>0):
+#     ld=n%10
+#     if ld>0:
+#         val=str(n)
+#         rev=val[::-1]
+#         print(rev)
+#         break
+#     elif ld==0:
+#         n=n//10
+        
+# output
+" 210456412 "
+    
+# =============================================================================================================
+
+"""Given a positive integer n, find the number of perfect squares that are less than n in the sample space of perfect squares. The sample space consists of all perfect squares starting from 1 (i.e., 1, 4, 9, 16, 25, …)
+
+Examples :
+
+Input: n = 9
+Output: 2
+Explanation: 1 and 4 are the only Perfect Squares less than 9. So, the Output is 2."""
+
+# n=3
+# count=0
+# for i in range(1,n):
+#         power=pow(i,2)
+#         if power<n:
+#             count+=1
+#         else:
+#             break
+# print(count)
+
+
+# // if n=0 --> if the zero is given as n value//
+
+# def countSquares(n):
+#       count=0
+#       if n==0:
+#           return -2147483648
+#       for i in range(1,n):
+#               power=pow(i,2)
+#               if power<n:
+#                   count+=1
+#               else:
+#                   break
+#       return count
+# print(countSquares(10))
+
+# output
+
+" 3 "
+
+# =============================================================================================================
+"to iterate the elements from the array"
+
+# arr=[1,2,3,4,5,6,7,8]
+# for i in range(0,len(arr)):
+#     print(arr[i])
+
+"""
+1
+2
+3
+4
+5
+6
+7
+8
+"""
+
+# =============================================================================================================
+
+"to add the values in the array"
+
+# arr=[1,2,3,4,5,6,7]
+# sum=0
+# for i in range(0,len(arr)):
+#     sum=sum+arr[i]
+# print(sum)
+
+# output
+" 28 "
+
+# =============================================================================================================
+"to find the count of even and odd numbers in an array"
+
+# def count(arr):
+#     even=0
+#     odd=0
+#     for i in range(0,len(arr)):
+#         if arr[i]%2==0:
+#             even+=1
+#         else:
+#             odd+=1
+#     return odd,even
+# print(*count(arr=[1,2,3,4,5,6,7,8,9]))
+
+# //---> * removes the paranthesis and comma from the output value. (5,4)--> 5 4
+
+# output
+" 5 4 "
+
+# =============================================================================================================
+"to find the largest number in the array "
+
+# arr=[3,2,3,56,78,2,96,96,96,4,5,6,100,7,0]
+# large=arr[0]
+# for i in range(0,len(arr)):
+#     if arr[i]>=large:
+#         large=arr[i]
+    
+# print(large)
+
+# output
+" 100 "
+
+# using in built function
+
+# def largest(self, arr):
+#         return max(arr)
+
+
+# optimized program
+
+# def largest(self, arr):
+   
+#     large = arr[0]
+#     for num in arr:  
+#         if num > large:
+#             large = num
+#     return large
+
+# =============================================================================================================
+
+""" Given an array, arr[] of integers, your task is to return the smallest and second smallest element in the array. If the smallest and second smallest do not exist, return -1.
+
+Examples:
+
+Input: arr[] = [2, 4, 3, 5, 6]
+Output: [2, 3] 
+Explanation: 2 and 3 are respectively the smallest and second smallest elements in the array."""
+
+# def small(arr):
+#     out=[]
+#     sort=sorted(arr)
+#     first=sort[0]
+#     sec=sort[1]
+#     out.append(first)
+#     out.append(sec)
+#     return out
+# print(small(arr=[1,0,2,0,5,4,7,3]))
+
+# --> optimized program and passes all the test cases-->
+
+# def minAnd2ndMin(arr):
+#         out=[]
+#         sort=sorted(arr)
+#         first=sort[0]
+#         sec=None
+#         for i in sort:
+#             if i != first:
+#                 sec=i
+#                 break
+#         if sec is None:
+#             return [-1]
+#         out.append(first)
+#         out.append(sec)
+#         return out
+# print(minAnd2ndMin(arr=[1,0,2,0,5,4,7,3]))
+
+# output
+"[0, 1]"
+
+# =============================================================================================================
+"""Given an array arr. Your task is to find the minimum and maximum elements in the array.
+
+Note: Return a Pair that contains two elements the first one will be a minimum element and the second will be a maximum.
+
+Examples:
+
+Input: arr[] = [3, 2, 1, 56, 10000, 167]
+Output: 1 10000
+Explanation: minimum and maximum elements of array are 1 and 10000."""
+
+# def get_min_max(arr):
+#     output=[]
+#     sort=sorted(arr)
+#     min=sort[0]
+#     rev=sort[::-1]
+#     max=rev[0]
+
+#     output.append(min)
+#     output.append(max)
+#     return output
+
+# print(get_min_max(arr=[1,0,2,0,5,4,7,3]))
+
+# output
+"[0,7]"
+# =============================================================================================================
+
+"""You are given an array arr[], the task is to return a list elements of arr in alternate order (starting from index 0).
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4]
+Output: 1 3
+Explanation:
+Take first element: 1
+Skip second element: 2
+Take third element: 3
+Skip fourth element: 4"""
+
+# for knowing how to iterate alternate values from an array
+
+# arr=[1,0,2,0,5,4,7,3]
+# for i in range(0,len(arr),2):
+#     print(arr[i])
+
+# --> program <--
+
+# def getAlternates(arr):
+#     output=[]
+#     for i in range(0,len(arr),2):
+#         output.append(arr[i])
+#     return output
+
+# print(getAlternates(arr=[1,0,2,0,5,4,7,3]))
+
+# output
+"[1, 2, 5, 7]"
+
+# =============================================================================================================
+
+"""Given an array, arr[] of n integers, and an integer element x, find whether element x is present in the array. Return the index of the first occurrence of x in the array, or -1 if it doesn't exist.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4], x = 3
+Output: 2
+Explanation: For array [1, 2, 3, 4], the element to be searched is 3. Since 3 is present at index 2, the output is 2."""
+# -->to return the index of the first occurrence <--
+
+# def search(arr, x):
+#   for i in range(0,len(arr)):
+#       if arr[i]==x:
+#           return i
+#   return -1
+
+# print("index:",search(arr=[1,0,2,0,5,4,7,3],x=4))
+# output:
+"index: 5"
+
+# -->to return the index of the nth occurrence <--
+
+# arr=[2,3,4,1,4,6,4,2,1]
+# x=1
+# index_value=-1
+# for i in range(0,len(arr)):
+#     if arr[i]==x:
+#         index_value=i
+# if index_value==-1:
+#     print("-1")
+# else:
+#     print(index_value)
+
+# output:
+"index_value: 8"
+
+# =============================================================================================================
+"to find the product of maximum value in arr1 and minimum value in arr2"
+
+# arr1=[2,3,4,1,4,6,4,2,1]
+# arr2=[2,3,4,4,6,4,2,]
+# maxi=max(arr1)
+# mini=min(arr2)
+# print(maxi*mini)
+
+# output:
+" 12 "
+
+# =============================================================================================================
+"to find the prime numbers--> using seive of eratosthenes"
+
+# a=int(input("enter the starting number:"))
+# n=int(input("enter the final number:"))
+# k=int(input("enter the kth number:"))
+# prime=[1]*(n+1)
+# prime[0]=prime[1]=0
+
+# for i in range(2,int(n**0.5)+1):
+#     if prime[i]==1:
+#         for j in range(i*i,n+1,i):
+#             prime[j]=0
+# prime_list=[]
+# count=0
+# sum=0
+# for i in range(a,n+1):
+#     if prime[i]==1:
+#         count=count+1
+#         sum=sum+i
+#         prime_list.append(i)
+# print(f"the prime numbers between {a} and {n} are :{prime_list}")
+# print(f"the count of the prime numbers are :{count}") 
+# print(f"the {k}-th prime number is: {prime_list[k-1]}")
+# print(f"the sum of prime numbers between {a} and {n} is:{sum}")
+
+# output:
+"""enter the starting number:2
+enter the final number:100
+enter the kth number:10
+the prime numbers between 2 and 100 are :[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+the count of the prime numbers are :25
+the 10-th prime number is: 29
+the sum of prime numbers between 2 and 100 is:1060"""
+    
+# =============================================================================================================
+"introduction to recursion "
+
+# def rec(n):
+#     if n==0:
+#         return
+#     else:
+#         rec(n-1)
+
+#         print(n)
+# rec(5)
+
+# output:
+"""
+1
+2
+3
+4
+5
+"""
+
+# =============================================================================================================
+"""-->how to solve recursive problems<--
+      1. break the problem into smaller problems
+      2. start building logic behind the smaller problem
+      3. find the recursive step for the given problem
+      4. find the base condition
+      5. build the recursive tree """
+
+# problems
+
+"""You are given an integer n. You have  to print all numbers from 1 to n.
+Note: You must use recursion only, and print all numbers from 1 to n in a single line, separated by spaces.
+
+Examples:
+
+Input: n = 10
+Output: 1 2 3 4 5 6 7 8 9 10"""
+
+# def sum(n):
+#     if n==0:
+#         return
+#     else:
+#         sum(n-1)
+#         print(n,end=" ")
+# sum(10)
+
+# output:
+"1 2 3 4 5 6 7 8 9 10"
+# =============================================================================================================
+
+
+"""Given a non-negative integer n, your task is to find the nth Fibonacci number.
+
+The Fibonacci sequence is a sequence where the next term is the sum of the previous two terms.
+
+The first two terms of the Fibonacci sequence are 0 followed by 1. The Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21
+
+The Fibonacci sequence is defined as follows:
+
+F(0) = 0
+F(1) = 1
+F(n) = F(n - 1) + F(n - 2) for n > 1
+Examples :
+
+Input: n = 5
+Output: 5
+Explanation: The 5th Fibonacci number is 5."""
+
+# def fib(n):
+#     if n==1:
+#         return 1
+#     elif n==0:
+#         return 0
+#     return fib(n-1)+fib(n-2)
+
+# n=int(input("enter the number:"))
+# print(fib(n))
+
+# output:
+" 5 "
+    
+# =============================================================================================================
