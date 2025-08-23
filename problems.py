@@ -1438,3 +1438,236 @@ Explanation: The 5th Fibonacci number is 5."""
 " 5 "
     
 # =============================================================================================================
+"to count the number of zeros in a number using recursion"
+
+# def count_zero(n):
+#     if n==0:
+#         return 1
+#     if n<10:
+#         return 0
+#     last_digit=n%10
+#     if last_digit==0:
+#         return 1+count_zero(n//10)
+#     else:
+#         return count_zero(n//10)
+# print(count_zero(5060203000))
+
+# output:
+" 6 "
+
+# =============================================================================================================
+"to count the numbers of digits in a number using recursion"
+
+# def digits(n):
+#     if n<10:
+#         return 1
+#     return 1+digits(n//10)
+# print(digits(1084523487))
+
+# output:
+" 10 "
+
+# =============================================================================================================
+"to find the sum of digits using recursion"
+
+# def sum(n):
+#     if n<10:
+#         return n
+#     ld=n%10
+#     return ld+sum(n//10)
+# print(sum(34534))
+
+# output:
+" 19 "
+
+# =============================================================================================================
+"to print the values from the array using recursion"
+
+# def count(arr,i):
+#     n=len(arr)
+#     if i>=n:
+#         return
+#     print(arr[i])
+#     return count(arr,1+i)
+# count(arr=[1,2,3,4],i=0)
+
+# output:
+"""
+1
+2
+3
+4
+"""
+
+# =============================================================================================================
+" to find the index value of the target value in an array using recursion"
+
+# def search(arr,i,target):
+#     n=len(arr)
+#     if i==n:
+#         if target!=arr[i-1]:
+#             return -1
+#     if target ==arr[i]:
+        
+#         return i
+#     return search(arr,i+1,target)
+# print(search(arr=[1,2,3,4,5,6],i=0,target=3))
+
+# output:
+" 2 "
+
+# =============================================================================================================
+"to find the sum of values in an array using recursion"
+
+# def sum(arr,i):
+#     n=len(arr)
+#     if i==n-1:
+#         return arr[i]
+#     elif n>1:
+#         return arr[i]+sum(arr,i+1)
+# print(sum(arr=[0,32,4,45,36,52],i=0))
+
+# output:
+" 169 "
+
+# =============================================================================================================
+"to check whether the array is sorted or not using recursion"
+# def asc(arr,i):
+#     n=len(arr)
+#     if i==n-1:
+#         return True
+#     if arr[i]<arr[i+1]:
+#         return asc(arr,i+1)
+#     return False
+# print(asc(arr=[0,101,200,302,304,500],i=0))
+
+# output"
+" True "
+
+# =============================================================================================================
+"to print the divisors of a number using recursion"
+
+# def div(n,i):
+#     if i==n:
+#         print(n,end=" ")
+#         return 
+#     if n%i==0:
+#         print(i,end=" ")
+    
+#     return div(n,i+1)
+# div(50,1)
+
+# output:
+" 1 2 5 10 25 50 "
+
+
+# =============================================================================================================
+
+"to find the power of a number using recursion"
+# n-->the base number, i-->the initializer, pow-->the power number
+
+# def power(n,i,pow):
+#     if pow==0:
+#         return 1
+#     if i==pow:
+#         return n
+#     return n*power(n,i+1,pow)
+# print(power(4,1,3))
+
+# output:
+" 64 "
+
+# =============================================================================================================
+"sorting an array using bubble sort"
+
+# arr=[1,2,3,596,99,234,6,3,1,0]
+# for i in range(1,len(arr)):
+#     for j in range(0,len(arr)-1):
+#         if arr[j]>arr[j+1]:
+#             arr[j],arr[j+1]=arr[j+1],arr[j]
+#         if j>len(arr):
+#             break
+
+# print(arr)
+
+# output:
+"[0, 1, 1, 2, 3, 3, 6, 99, 234, 596]"
+
+# =============================================================================================================
+
+"to remove special characters from a string"
+
+# import re
+# arr="sa$hba*gsr$^"
+# result=re.sub(r'[^a-zA-Z0-9]',"",arr)
+# print(result)
+
+# output:
+"sahbagsr"
+
+"removing special characters in a string without importing re"
+
+# arr="sa$hba*gsr$^"
+# for i in arr:
+#     if i =="$" or i== "*" or i=="^":
+#         arr.replace(i,"")
+#     else:
+#       print(i,end="")
+
+# =============================================================================================================
+"to remove duplicates in an array"
+
+# arr=[1,2,3,4,5,3,2,1,5,1,2,3,4,5,6,7,5,7,6,8,7,8,6,9,8,7,10]
+# result=[]
+# for i in arr:
+#     if i not in result:
+#         result.append(i)
+# print(result)
+
+# output:
+"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+
+# =============================================================================================================
+"to count the vowels in a string"
+
+# name="gouthaman ravi"
+# count=0
+# for i in name:
+#     if i=="a" or i=="e" or i=="i" or i=="o" or i=="u":
+#         count+=1
+# print(count)
+
+# output
+" 6 "
+
+# =============================================================================================================
+#                                             ---> BINARY SEARCH ALGORITHM <---
+
+"to get an element index using binary search"
+
+# def sort(arr):
+#   arr1=sorted(arr)
+#   print(arr1)
+#   high=len(arr1)-1
+#   low=0
+#   x=20
+#   while(low<=high):
+#       mid=(high+low)//2
+
+#       if arr1[mid]==x:
+#           return mid   
+             
+                 
+#       elif arr1[mid]<x:
+#           low=mid+1
+#       elif arr1[mid]>x:
+#           high=mid-1
+#   return -1
+      
+          
+# print(sort(arr=[398,232,433,22,13,8,9,2,1]))
+        
+# OUTPUT:
+" 5 "
+
+# =============================================================================================================
