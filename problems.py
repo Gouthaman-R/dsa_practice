@@ -276,6 +276,25 @@ Grade A
 # =============================================================================================================
 
 # n=5
+# num=1
+# for i in range(n):
+#     for j in range(n):
+#         print(num,end=" ")
+#         num+=1
+#     print("")
+
+# output:
+"""
+1 2 3 4 5 
+6 7 8 9 10
+11 12 13 14 15
+16 17 18 19 20
+21 22 23 24 25
+
+"""
+# =============================================================================================================
+
+# n=5
 # for i in range(1,n+1):
 #     for j in range(1,i+1):
 #         print(j,end=" ")
@@ -307,6 +326,28 @@ Grade A
 * ** *** **** ***** 
 """
     
+# =============================================================================================================
+
+# n=5
+# for i in range(1,n+1):
+#     for j in range(1,n+1):
+#         if j<i:
+#             print(i,end=" ")
+#         else:
+#             print(j,end=" ")
+#     print("")
+
+# output:
+
+"""
+1 2 3 4 5 
+2 2 3 4 5
+3 3 3 4 5
+4 4 4 4 5
+5 5 5 5 5
+
+"""
+
 # =============================================================================================================
 
 
@@ -464,13 +505,13 @@ Grade A
 # for i in range(1,n+1):
 #     for j in range(1,n+1-i):
 #         print(" ",end=" ")
-#     for K in range(1,2*i+1-1):
+#     for j in range(1,2*i):
 #         print("*",end=" ")
 #     print("")
-# for i in range(1,n+1):
+# for i in range(1,n):
 #     for j in range(1,i+1):
 #         print(" ",end=" ")
-#     for j in range(1,2*n+1-2*i-1):
+#     for j in range(1,(2*n)-(2*i)):
 #         print("*",end=" ")
 #     print("")
 
@@ -1671,3 +1712,475 @@ Explanation: The 5th Fibonacci number is 5."""
 " 5 "
 
 # =============================================================================================================
+
+"to find the second largest value in an array"
+
+# def sec_large(arr):
+#     large=arr[0]
+#     for i in range(1,len(arr)):
+#       if arr[i]>large:
+#         large=arr[i]
+#     second=-1
+#     for j in range(0,len(arr)):
+#         if arr[j]>second and arr[j]!=large:
+#           second=arr[j]
+#     return second
+        
+# print(sec_large(arr=[100,5,3,4,2,55,12,66,43,78]))
+
+# output:
+" 78 "
+
+# =============================================================================================================
+#                                    ---> MERGE SORTING <--- [DIVIDE & CONQUER]
+
+# def mergesort(arr):
+#     if len(arr)>1:
+#         middle=len(arr)//2
+#         left=arr[:middle]
+#         right=arr[middle:]
+#         mergesort(left)
+#         mergesort(right)
+
+#         lp=0
+#         rp=0
+#         fp=0
+#         while len(left)>lp and len(right)>rp:
+#             if left[lp]<right[rp]:
+#               arr[fp]=left[lp]
+#               lp+=1
+#             else:
+#                 arr[fp]=right[rp]
+#                 rp+=1
+#             fp+=1
+#         while len(left)>lp:
+#             arr[fp]=left[lp]
+#             lp+=1
+#             fp+=1
+#         while len(right)>rp:
+#             arr[fp]=right[rp]
+#             rp+=1
+#             fp+=1
+#     return arr
+# arr=[90,242,123,547,45,32,1,56,6,44,32,55,90,0]
+# print(mergesort(arr))
+
+# output:
+
+" [0, 1, 6, 32, 32, 44, 45, 55, 56, 90, 90, 123, 242, 547] "
+
+# =============================================================================================================
+"""You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+Example 2:
+
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+Example 3:
+
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+ """
+#                                        ---> merging the arrays from the last element of the array <---
+# program:
+
+# def merge(nums1, m, nums2, n):
+
+#     lp=m-1    #to denote the last element of the nums1
+#     rp=n-1      #to denote the last element of the nums2
+#     fp=m+n-1  
+#     while lp>=0 and rp>=0:
+#         if nums1[lp]>nums2[rp]:
+#             nums1[fp]=nums1[lp]
+#             lp-=1
+
+#         else:
+#             nums1[fp]=nums2[rp]
+#             rp-=1
+#         fp-=1
+#     while rp>=0:
+#             nums1[fp]=nums2[rp]
+#             rp-=1
+#             fp-=1
+#     return nums1
+        
+
+# =============================================================================================================
+                              # ---> sorting 0,1,2 using dutch national flag algorithm <---
+
+"""Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
+Note: You need to solve this problem without utilizing the built-in sort function.
+
+Examples:
+
+Input: arr[] = [0, 1, 2, 0, 1, 2]
+Output: [0, 0, 1, 1, 2, 2]
+Explanation: 0s, 1s and 2s are segregated into ascending order."""
+
+
+# def dutch(arr):
+#     left=0
+#     mid=0
+#     right=len(arr)-1
+#     while mid<=right:
+#         if arr[mid]==1:
+#             mid+=1
+#         elif arr[mid]==0:
+#             arr[left],arr[mid]=arr[mid],arr[left]
+#             mid+=1
+#             left+=1
+#         elif arr[mid]==2:
+#             arr[right],arr[mid]=arr[mid],arr[right]
+#             right-=1
+#     return arr
+
+# print(dutch(arr=[1,1,0,2,1,0,2,0]))
+
+
+# output:
+
+"[0, 0, 0, 1, 1, 1, 2, 2]"
+
+# =============================================================================================================
+
+"""Given an array arr, rotate the array by one position in clockwise direction.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4, 5]
+Output: [5, 1, 2, 3, 4]
+Explanation: If we rotate arr by one position in clockwise 5 come to the front and remaining those are shifted to the end."""
+
+# arr=[1,2,3,4,5,4]
+# temp=arr[-1]
+# i=len(arr)-1
+# while i>=1:
+#     arr[i]=arr[i-1]
+#     i-=1
+# arr[0]=temp
+# print(arr)
+
+# output:
+'[4, 1, 2, 3, 4, 5]'
+
+# =============================================================================================================
+
+#                                               ----> rotate array by k <----
+
+"""Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+Example 1:
+
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]"""
+
+
+# def rotate(arr,k):
+#     n=len(arr)
+#     b=[]
+#     k=k%n    #Because rotating an array by its length n (or any multiple of n) brings it back to the same place.So we only need to rotate by the remainder when dividing k by n.
+#     for i in range(n-k,n):
+#         b.append(arr[i])
+        
+#     for i in range(0,n-k):
+#         b.append(arr[i])
+        
+#     return b
+# print(rotate(arr=[1,2,3,4,5,6,7],k=4))
+
+# output:
+'[4, 5, 6, 7, 1, 2, 3]'
+
+# =============================================================================================================
+"""Given an increasing sorted rotated array arr[] of distinct integers. The array is right-rotated k times. Find the value of k.
+Let's suppose we have an array arr[] = [2, 4, 6, 9], if we rotate it by 2 times it will look like this:
+After 1st Rotation : [9, 2, 4, 6]
+After 2nd Rotation : [6, 9, 2, 4]
+
+Examples:
+
+Input: arr[] = [5, 1, 2, 3, 4]
+Output: 1
+Explanation: The given array is [5, 1, 2, 3, 4]. The original sorted array is [1, 2, 3, 4, 5]. We can see that the array was rotated 1 times to the right.
+Input: arr = [1, 2, 3, 4, 5]
+Output: 0
+Explanation: The given array is not rotated."""
+
+# def findKRotation( arr):
+#     if arr==sorted(arr):
+#         return 0
+#     if  len(arr)==1:
+#         return 0
+#     maxi=max(arr)
+#     for i in range(0,len(arr)-1):
+#         if arr[i]==maxi:
+#             index=i
+#             break
+#     count=0
+#     for j in range(index+1,0,-1):
+#         count+=1
+#     return count
+
+# print(findKRotation(arr=[5,7,9,1,2,3,4]))
+
+# output
+'3'
+
+# =============================================================================================================
+"""Given two arrays a[] and b[] of equal size, the task is to find whether the elements in the arrays are equal.
+Two arrays are said to be equal if both contain the same set of elements, arrangements (or permutations) of elements may be different though.
+Note: If there are repetitions, then counts of repeated elements must also be the same for two arrays to be equal.
+
+Examples:
+
+Input: a[] = [1, 2, 5, 4, 0], b[] = [2, 4, 5, 0, 1]
+Output: true
+Explanation: Both the array can be rearranged to [0,1,2,4,5]
+Input: a[] = [1, 2, 5], b[] = [2, 4, 15]
+Output: false
+Explanation: a[] and b[] have only one common value."""
+
+
+# def check(a,b):
+#   sort_a=sorted(a)
+#   sort_b=sorted(b)
+#   print(sort_b)
+#   if sort_a==sort_b:
+#     return True
+#   else:
+#     return False
+
+# a=[1,2,5,4,0]
+# b=[2,4,5,0,1]
+# print(check(a,b))
+
+# output:
+"True"
+
+# =============================================================================================================
+
+"""Given an array arr[], check whether it is sorted in non-decreasing order. Return true if it is sorted otherwise false.
+
+Examples:
+
+Input: arr[] = [10, 20, 30, 40, 50]
+Output: true
+Explanation: The given array is sorted.
+Input: arr[] = [90, 80, 100, 70, 40, 30]
+Output: false
+Explanation: The given array is not sorted."""
+
+# def sort(arr):
+#   for i in range(1,len(arr)):
+#     if arr[i]<arr[i-1]:
+#       return False
+#   return True
+# print(sort(arr=[7,0,1,2,3,4,5,6]))
+
+# output:
+"False"
+
+# =============================================================================================================
+
+"""You are given an array arr[] of non-negative integers. You have to move all the zeros in the array to the right end while maintaining the relative order of the non-zero elements. The operation must be performed in place, meaning you should not use extra space for another array.
+
+Examples:
+
+Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
+Output: [1, 2, 4, 3, 5, 0, 0, 0]
+Explanation: There are three 0s that are moved to the end.
+Input: arr[] = [10, 20, 30]
+Output: [10, 20, 30]
+Explanation: No change in array as there are no 0s."""
+
+# def sort(arr):   #brute force
+#     n=len(arr)
+#     for i in range(n):
+#         for j in range(0,n-i-1):
+#             if arr[j]==0:
+#                 arr[j],arr[j+1]=arr[j+1],arr[j]
+#     return arr
+# print(sort(arr=[0,0,8]))
+
+
+
+# def sort(arr):  #optimized program
+#     n=len(arr)
+#     pointer=0
+#     for i in range(n):
+#         if arr[i]!=0:
+#             arr[pointer]=arr[i]
+#             pointer+=1
+#     while pointer<n:
+#         arr[pointer]=0
+#         pointer+=1
+#     return arr
+# print(sort(arr=[1,0,20,3,0,4,0,5,0]))
+
+# output:
+'[1, 20, 3, 4, 5, 0, 0, 0, 0]'
+
+# =============================================================================================================
+"to remove duplicates from an array"
+
+# arr1=[1,2,3,4,5,6,7,3,4,5,6]
+# arr2=[]
+# for i in range(len(arr1)):
+#     if arr1[i] not in arr2:
+#         arr2.append(arr1[i])
+        
+# print(arr2)
+
+# arr1=[0,0,1,1,1,2,2,3,3,3,3,4,4,4,4,5,5,5]
+# i=0
+# while i<len(arr1)-1:
+#     if arr1[i]==arr1[i+1]:
+#         arr1.pop(i)
+#     else:
+#         i+=1
+# print(arr1)
+
+
+# optimzed program:
+
+# arr=[0,0,1,1,2,2,2,3,3,4,4,4,4,5]
+# result = []
+# for num in arr:
+#     if not result or result[-1] != num:  # check last inserted element
+#         result.append(num)
+# print(result) 
+
+
+
+
+# =============================================================================================================
+"to find the LCM of two values"
+
+# def gcd(a,b):
+#     if a>=b:
+#         gcd_value=1
+#         for i in range(2,a+1):
+#             if a%i==0 and b%i==0:
+#                 gcd_value=i
+#         return gcd_value
+#     else:
+#         gcd_value=1
+#         for i in range(2,b+1):
+#             if a%i==0 and b%i==0:
+#                 gcd_value=i
+#         return gcd_value
+# def lcm(a,b):
+#     lcmres=(a*b)//gcd(a,b)
+#     return lcmres
+
+# print(gcd(8,4))
+# print(lcm(8,4))
+    
+        
+# =============================================================================================================
+"""Given an unsorted array arr[ ] having both negative and positive integers. The task is to place all negative elements at the end of the array without changing the order of positive elements and negative elements.
+
+Note: Don't return any array, just in-place on the array.
+
+Examples:
+
+Input : arr[] = [1, -1, 3, 2, -7, -5, 11, 6 ]
+Output : [1, 3, 2, 11, 6, -1, -7, -5]
+Explanation: By doing operations we separated the integers without changing the order.
+Input : arr[] = [-5, 7, -3, -4, 9, 10, -1, 11]
+Output : [7, 9, 10, 11, -5, -3, -4, -1]"""
+ 
+    
+# def move_neg(arr):
+#     pos=[]
+#     neg=[]
+#     for i in arr:
+#         if i >=0:
+#             pos.append(i)
+            
+#         else:
+#             neg.append(i)
+        
+#     for i in range(len(pos)):
+#         arr[i]=pos[i]
+#     for i in range(len(neg)):
+#         arr[len(pos)+i]=neg[i]
+#     return arr
+
+# print(move_neg(arr=[1,6,2,-5,3,0,-3,-1,10]))
+
+# output:
+"[1, 6, 2, 3, 0, 10, -5, -3, -1]"
+
+# =============================================================================================================
+"""Given an sorted array arr[] of integers. Sort the array into a wave-like array(In Place). In other words, arrange the elements into a sequence such that arr[1] >= arr[2] <= arr[3] >= arr[4] <= arr[5] ..... and so on. If there are multiple solutions, find the lexicographically smallest one.
+
+Note: The given array is sorted in ascending order, and modify the given array in-place without returning a new array.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4, 5]
+Output: [2, 1, 4, 3, 5]
+Explanation: Array elements after sorting it in the waveform are 2, 1, 4, 3, 5.
+Input: arr[] = [2, 4, 7, 8, 9, 10]
+Output: [4, 2, 8, 7, 10, 9]
+Explanation: Array elements after sorting it in the waveform are 4, 2, 8, 7, 10, 9."""
+
+# arr=[1,2,3,4,5,6]
+# odd=[]
+# even=[]
+# odd.append(arr[0])
+
+# for i in range(1,len(arr)):
+#     if i%2!=0:
+#         even.append(arr[i])
+        
+#     else:
+#         odd.append(arr[i])
+
+# result=[]
+# for i in range(max(len(odd),len(even))):
+#     if i<len(even):
+#         result.append(even[i])
+#     if i<len(odd):
+#         result.append(odd[i])
+
+# for i in range(len(arr)):
+#             arr[i]=result[i]
+        
+# print(arr)
+
+# output:
+"[2, 1, 4, 3, 6, 5]"
+
+# simplified program
+
+# arr=[1,2,3,4,5]
+# n=len(arr)
+# for i in range(0,n-1,2):
+#     arr[i],arr[i+1]=arr[i+1],arr[i]
+# print(arr)
+
+# =============================================================================================================
+
