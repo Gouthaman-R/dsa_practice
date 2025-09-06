@@ -2184,3 +2184,565 @@ Explanation: Array elements after sorting it in the waveform are 4, 2, 8, 7, 10,
 
 # =============================================================================================================
 
+"""Given an array of integers arr[]. You have to find the Inversion Count of the array. 
+Note : Inversion count is the number of pairs of elements (i, j) such that i < j and arr[i] > arr[j].
+
+Examples:
+
+Input: arr[] = [2, 4, 1, 3, 5]
+Output: 3
+Explanation: The sequence 2, 4, 1, 3, 5 has three inversions (2, 1), (4, 1), (4, 3).
+Input: arr[] = [2, 3, 4, 5, 6]
+Output: 0
+Explanation: As the sequence is already sorted so there is no inversion count."""
+
+# ------->> brute force program, time complexity: O(n^2)
+
+# arr=[7, 72 ,90, 21 ,60]
+# n=len(arr)
+# count=0
+# for i in range(n-1):
+#     for j in range(i+1,n):
+#         if arr[i]>arr[j]:
+#           count+=1
+# print(count)
+
+# output:
+" 4 "
+
+# =============================================================================================================
+"""The Union of two arrays is a collection of all distinct elements present in either of the arrays. If an element appears more than once in one or both arrays, it should be included only once in the result.
+
+Note: Elements of a[] and b[] are not necessarily distinct.
+Note that, You can return the Union in any order but the driver code will print the result in sorted order only.
+
+Examples:
+
+Input: a[] = [1, 2, 3, 2, 1], b[] = [3, 2, 2, 3, 3, 2]
+Output: [1, 2, 3]
+Explanation: Union set of both the arrays will be 1, 2 and 3.
+Input: a[] = [1, 2, 3], b[] = [4, 5, 6] 
+Output: [1, 2, 3, 4, 5, 6]
+Explanation: Union set of both the arrays will be 1, 2, 3, 4, 5 and 6."""
+# a=[1,2,3,0,0,2,2,2,1]
+# b=[4,5,6,7,8,4,2,1]
+# c=[]
+# d=[]
+# result=[]
+# for i in a:
+#     if i not in c:
+#         c.append(i)
+# for i in b:
+#     if i not in d:
+#         d.append(i)
+# for j in c:
+#     result.append(j)
+# for j in d:
+#     if j not in result:
+#         result.append(j)
+# print(result)
+
+# output:
+"[1, 2, 3, 0, 4, 5, 6, 7, 8]"
+
+# optimized program:
+
+# a=[1,2,3,0,0,2,2,2,1]
+# b=[4,5,6,7,8,4,10,11]
+
+# print(list(set(a)|set(b)))
+
+# =============================================================================================================
+
+"""You are given two arrays a[] and b[], return the Union of both the arrays in any order.
+
+The Union of two arrays is a collection of all distinct elements present in either of the arrays. If an element appears more than once in one or both arrays, it should be included only once in the result.
+
+Note: Elements of a[] and b[] are not necessarily distinct.
+Note that, You can return the Union in any order but the driver code will print the result in sorted order only.
+
+Examples:
+
+Input: a[] = [1, 2, 3, 2, 1], b[] = [3, 2, 2, 3, 3, 2]
+Output: [1, 2, 3]
+Explanation: Union set of both the arrays will be 1, 2 and 3.
+Input: a[] = [1, 2, 3], b[] = [4, 5, 6] 
+Output: [1, 2, 3, 4, 5, 6]
+Explanation: Union set of both the arrays will be 1, 2, 3, 4, 5 and 6."""
+
+
+# a=[1,2,3,0,0,2,2,2,1]
+# b=[4,5,6,7,8,4,10,11,23,55,89,1,2,3]
+# res=[]
+# c=list(set(a))
+# d=list(set(b))
+# print(c)
+# print(d)
+# print(res)
+# if len(c)<len(d):
+#     for i in range(len(c)):
+#         for j in range(len(d)):                        # BRUTE FORCE METHOD
+#             if c[i]==d[j]:
+#                 res.append(c[i])
+                
+# if len(d)<len(c):
+#     for i in range(len(d)):
+#         for j in range(len(c)):
+#             if d[i]==c[j]:
+#                 res.append(d[i])
+# print(res)
+
+
+# ---------->> OPTIMIZED PROGRAM
+
+# a=[1,2,3,0,0,2,2,2,1]
+# b=[4,5,6,7,8,4,10,11,23,55,89,1,2,3]
+# print(list(set(a)&set(b)))
+
+
+# a=[1]
+# b=[0]
+# res=list(set(a)&set(b))       #----------->> if there is no common values print or return 1
+# if len(res)>1:
+#     print(res)
+# elif len(res)<=0:
+#     print("1")
+
+# =============================================================================================================
+"""Given an array arr[] of size n, containing elements from the range 1 to n, and each element appears at most twice, return an array of all the integers that appears twice.
+
+Note: You can return the elements in any order but the driver code will print them in sorted order.
+
+Examples:
+
+Input: arr[] = [2, 3, 1, 2, 3]
+Output: [2, 3] 
+Explanation: 2 and 3 occur more than once in the given array.
+Input: arr[] = [3, 1, 2] 
+Output: []
+Explanation: There is no repeating element in the array, so the output is empty."""
+
+
+# def findDuplicates(arr):
+#     res1 = []
+#     res2 = []
+    
+#     for i in arr:
+#         if i == 0:  
+#             return res2  # skip 0s completely
+#         if i not in res1:
+#             res1.append(i)
+#         elif i not in res2:   # to avoid multiple same duplicates
+#             res2.append(i)
+#     return res2
+# print(findDuplicates(arr=[1,2,2,3,4,4,5,6,6,7]))
+
+# output:
+"[2, 4, 6]"
+
+# =============================================================================================================
+"""You are given an array arr of positive integers. Your task is to find all the leaders in the array. An element is considered a leader if it is greater than or equal to all elements to its right. The rightmost element is always a leader.
+
+Examples:
+
+Input: arr = [16, 17, 4, 3, 5, 2]
+Output: [17, 5, 2]
+Explanation: Note that there is nothing greater on the right side of 17, 5 and, 2.
+
+Input: arr = [10, 4, 2, 4, 1]
+Output: [10, 4, 4, 1]
+Explanation: Note that both of the 4s are in output, as to be a leader an equal element is also allowed on the right. side
+
+Input: arr = [5, 10, 20, 40]
+Output: [40]
+Explanation: When an array is sorted in increasing order, only the rightmost element is leader.
+
+Input: arr = [30, 10, 10, 5]
+Output: [30, 10, 10, 5]
+Explanation: When an array is sorted in non-increasing order, all elements are leaders."""
+
+# arr=  [16, 17, 4, 3, 5, 2]
+# res=[]
+# large=arr[-1]
+# res.append(arr[-1])
+
+# for i in range(len(arr)-2,-1,-1):
+#   if large<=arr[i]:
+#       large=arr[i]
+#       res.append(large) 
+# res.reverse()
+# print(res)
+
+
+# /output:
+"[17, 5, 2]"
+
+# =============================================================================================================
+# prime numbers practice:
+
+# def exam(n,num,k):
+#     prime=[1]*(n+1)
+#     prime[0]=prime[1]=0
+#     for i in range(2,int(n**0.5)+1):
+#         if prime[i]==1:
+#             for j in range(i*i,n+1,i):
+#                 prime[j]=0
+#     result=[]
+#     count=0
+#     sum=0
+#     for i in range(num,n+1):
+#         if prime[i]==1:
+#             count+=1
+#             sum=sum+i
+#             result.append(i)
+#     return result ,count, sum, result[k-1]   #--> result[k-1]-returns the expected prime number from the result
+# print(exam(20,2,3))
+
+# output:
+"([2, 3, 5, 7, 11, 13, 17, 19], 8, 77, 5)"
+
+# =============================================================================================================
+
+"""  BASICS OF EXCEPTION HANDLING """
+
+# try:
+#     a=int(input("enter a number:"))
+#     b=int(input("enter a number:"))
+#     try:
+#       c=a//b
+#     except Exception as e:
+#         print("cause",e)
+#     else:
+#         print("result:",c)
+# except Exception as e:
+#     print("caught:",type(e).__name__,"-",e)
+
+# finally:
+#     print("the program is over")
+    
+# =============================================================================================================
+" to reverse a string "
+
+# a="geeks"
+# rev=a[::-1]
+# print(rev)
+
+# =============================================================================================================
+"""Given two non-empty strings s1 and s2, consisting only of lowercase English letters, determine whether they are anagrams of each other or not.
+Two strings are considered anagrams if they contain the same characters with exactly the same frequencies, regardless of their order.
+
+Examples:
+
+Input: s1 = "geeks" s2 = "kseeg"
+Output: true 
+Explanation: Both the string have same characters with same frequency. So, they are anagrams.
+Input: s1 = "allergy", s2 = "allergyy" 
+Output: false 
+Explanation: Although the characters are mostly the same, s2 contains an extra 'y' character. Since the frequency of characters differs, the strings are not anagrams. """
+
+# output:
+# def areAnagrams( s1, s2):
+#     s1=s1.replace(" ","").lower()
+#     s2=s2.replace(" ","").lower()
+#     sort1=sorted(s1)
+#     sort2=sorted(s2)
+#     if sort1==sort2:
+#         return True
+#     else:
+#         return False
+# print(areAnagrams("geeks","skeeg"))
+
+# output:
+" True "
+
+# =============================================================================================================
+"""Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+ 
+
+Example 1:
+
+Input: s = "abcde", goal = "cdeab"
+Output: true
+Example 2:
+
+Input: s = "abcde", goal = "abced"
+Output: false"""
+
+# def rotateString( s, goal):
+
+#     if len(s)!=len(goal):
+#         return False
+#     return goal in (s+s)
+# print(rotateString("abcde","cdeab"))
+
+# output:
+" True "
+
+# =============================================================================================================
+
+#                                       ----> ASCII CODE <----
+
+# a='a'                      # to convert character to number
+# print(ord(a[0]))
+
+# b=78                       #to convert numbers to character
+# print(chr(b))
+
+
+# a="gouthaman"
+# for i in a:
+#     print(i,":",ord(i))
+# output:
+"""
+g : 103
+o : 111
+u : 117
+t : 116
+h : 104
+a : 97
+m : 109
+a : 97
+n : 110
+"""
+
+# a="gouthaman"
+# ascii_list=[ord(i) for i in a]     # storing ascii codes in a list
+# print(ascii_list)
+
+# output:
+"[103, 111, 117, 116, 104, 97, 109, 97, 110]"
+
+
+# =============================================================================================================
+
+# arr=["apple","banana","muskmelon",'cat']
+# arr.sort(key=len)                           # to sort the array  by size of the elements
+# print(arr)
+
+# =============================================================================================================
+"""Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings."""
+
+# def longestCommonPrefix( strs):
+       
+#         prefix=''
+#         for char in zip(*strs):               #--> zip==> (('f', 'f', 'f'), ('l', 'l', 'l'), ('o', 'o', 'i'), ('w', 'w', 'g'))
+#             if len(set(char))==1:
+#                 prefix+=char[0]
+#             else:
+#                 break
+#         return prefix
+
+# print(longestCommonPrefix(strs = ["flower","flow","flight"]))
+
+# output:
+" fl "
+
+# =============================================================================================================
+"""Given a sorted array arr with possibly some duplicates, the task is to find the first and last occurrences of an element x in the given array.
+Note: If the number x is not found in the array then return both the indices as -1.
+
+Examples:
+
+Input: arr[] = [1, 3, 5, 5, 5, 5, 67, 123, 125], x = 5
+Output: [2, 5]
+Explanation: First occurrence of 5 is at index 2 and last occurrence of 5 is at index 5
+Input: arr[] = [1, 3, 5, 5, 5, 5, 7, 123, 125], x = 7
+Output: [6, 6]
+Explanation: First and last occurrence of 7 is at index 6
+Input: arr[] = [1, 2, 3], x = 4
+Output: [-1, -1]
+Explanation: No occurrence of 4 in the array, so, output is [-1, -1]"""
+
+# def samp(arr,x):
+#     n=len(arr)
+#     first=-1
+#     last=-1
+#     low=0
+#     high=n-1
+#     while low<=high:
+#         mid=(high+low)//2
+#         if arr[mid]==x:
+#             first=mid
+#             high=mid-1
+#         elif arr[mid]<x:
+#             low=mid+1
+#         else:
+#             high=mid-1
+#     low=0
+#     high=n-1
+#     while low<=high:
+#         mid=(high+low)//2
+#         if arr[mid]==x:
+#             last=mid
+#             low=mid+1
+#         elif arr[mid]<x:
+#             low=mid+1
+#         else:
+#             high=mid-1
+#     return first ,last
+# print(list(samp(arr=[1, 3, 5, 5, 5, 5, 7,67, 123, 125],x=5)))
+
+# output:
+"[2, 5]"
+        
+# =============================================================================================================
+"""You are given an array arr[] of size n - 1 that contains distinct integers in the range from 1 to n (inclusive). This array represents a permutation of the integers from 1 to n with one element missing. Your task is to identify and return the missing element.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 5]
+Output: 4
+Explanation: All the numbers from 1 to 5 are present except 4.
+Input: arr[] = [8, 2, 4, 5, 3, 7, 1]
+Output: 6
+Explanation: All the numbers from 1 to 8 are present except 6.
+Input: arr[] = [1]
+Output: 2
+Explanation: Only 1 is present so the missing element is 2."""
+
+# def find(arr):
+
+#     n = len(arr) + 1   # because array size is n-1
+#     total_sum = n * (n + 1) // 2
+#     arr_sum = sum(arr)
+#     return total_sum - arr_sum
+# print(find(arr=[8, 2, 4, 5, 3, 7, 1]))
+
+# output:
+" 6 "
+
+# =============================================================================================================
+"""Given a sorted array arr[]. Find the element that appears only once in the array. All other elements appear exactly twice. 
+
+Examples:
+
+Input: arr[] = [1, 1, 2, 2, 3, 3, 4, 50, 50, 65, 65]
+Output: 4
+Explanation: 4 is the only element that appears exactly once.
+Input: arr[] = [5]
+Output: 5
+Input: arr[] = [1, 2, 2, 3, 3]
+Output: 1"""
+
+#                                           ---> solved using binary search <---
+
+# def once(arr):
+#     n=len(arr)-1
+#     low=0
+#     high=n
+#     while low<high:
+#         mid=(low+high)//2
+#         if mid%2==1:
+#             mid-=1
+#         if arr[mid]==arr[mid+1]:
+#             low=mid+2
+#         else:
+#             high=mid
+#     return arr[low]
+# print(once(arr=[1,1,2,2,3,3,4,6,6]))
+
+# output:
+" 4 "
+
+# =============================================================================================================
+
+"""Given a sorted and rotated array arr[] of distinct elements, the task is to find the index of a target key.  If the key is not present in the array, return -1.
+
+Examples :
+
+Input: arr[] = [5, 6, 7, 8, 9, 10, 1, 2, 3], key = 3
+Output: 8
+Explanation: 3 is found at index 8.
+Input: arr[] = [3, 5, 1, 2], key = 6
+Output: -1
+Explanation: There is no element that has value 6.
+Input: arr[] = [33, 42, 72, 99], key = 42
+Output: 1
+Explanation: 42 is found at index 1."""
+
+
+# def search(arr,key):
+#     low=0
+#     high=len(arr)-1
+#     while low<=high:
+#         mid=(low+high)//2
+#         if key==arr[mid]:
+#             return mid
+#         if arr[mid]>arr[low]:
+#             if key>=arr[low] and arr[mid]>key:
+#                 high=mid-1
+#             else:
+#                 low=mid+1
+#         else:
+#             if key>arr[mid] and arr[high]<=key:
+#                 low=mid+1
+#             else:
+#                 high=mid-1
+#     return -1
+
+# print(search(arr=[5, 6, 7, 8, 9, 10, 1, 2, 3],key=3))
+
+# output:
+" 8 "
+
+# =============================================================================================================
+"""A sorted array of distinct elements arr[] is rotated at some unknown point, the task is to find the minimum element in it. 
+
+Examples:
+
+Input: arr[] = [5, 6, 1, 2, 3, 4]
+Output: 1
+Explanation: 1 is the minimum element in the array.
+Input: arr[] = [3, 1, 2]
+Output: 1
+Explanation: Here 1 is the minimum element.
+Input: arr[] = [4, 2, 3]
+Output: 2
+Explanation: Here 2 is the minimum element."""
+
+# def findMin( arr):
+#     low=0
+#     high=len(arr)-1
+#     while low<high:
+#         mid=(low+high)//2
+#         if arr[mid]>arr[high]:
+#             low=mid+1
+#         else:
+#             high=mid
+#     return arr[low]
+
+# print(findMin(arr=[5,6,7,1,2,3,4]))
+
+# output:
+" 1 "
+
+# =============================================================================================================
+def largest(arr):
+    low=0
+    high=len(arr)-1
+    while low<high:
+        mid=(low+high+1)//2
+        if arr[mid]>=arr[low]:
+            low=mid
+        else:
+            high=mid-1
+    return arr[low]
+print(largest(arr=[5,6,7,1,2,3,4]))
